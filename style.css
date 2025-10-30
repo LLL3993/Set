@@ -1,0 +1,92 @@
+/* 1 基础复位 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #0e0e10;
+  color: #ffffff;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* 2 呼吸灯标题 */
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+.glow {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00f2ea, #ff0055, #00f2ea);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: breathe 4s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 3 瀑布流容器 */
+.waterfall {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  column-count: 3;
+  column-gap: 30px;
+}
+@media (max-width: 900px) {
+  .waterfall { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .waterfall { column-count: 1; }
+}
+
+/* 4 卡片 */
+.card {
+  display: block;
+  background: #18181b;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  break-inside: avoid;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 242, 234, 0.25);
+}
+
+/* 5 图片 */
+.card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+/* 6 底部信息 */
+.info {
+  padding: 18px 20px 22px;
+}
+.info h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #00f2ea;
+}
+.info p {
+  font-size: 14px;
+  color: #c4c4c4;
+}
